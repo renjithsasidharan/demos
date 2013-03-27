@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3012" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="H9V-dm-p1H">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="QQD-Bk-eLJ">
+            <objects>
+                <viewController id="r8n-g0-UJ2" customClass="EQViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KBy-ZU-zB8">
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iEe-py-uib">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="G9y-vy-iwQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iEe-py-uib" firstAttribute="leading" secondItem="KBy-ZU-zB8" secondAttribute="leading" constant="158" id="R0A-QI-Eea"/>
+                            <constraint firstAttribute="bottom" secondItem="iEe-py-uib" secondAttribute="bottom" constant="360" id="TTi-S2-xoU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Zy5-tE-jSv"/>
+                    <connections>
+                        <outlet property="view" destination="KBy-ZU-zB8" id="DqB-WV-QEW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7wB-rH-eJK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-128" y="-237"/>
+        </scene>
+        <!--Table View Controller - Earthquakes in the last hour-->
+        <scene sceneID="7ps-gw-gmc">
+            <objects>
+                <tableViewController wantsFullScreenLayout="YES" id="nCF-Yr-ZzU" customClass="EQTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="0XN-j1-aNr">
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="MapCell" textLabel="SBC-me-DcY" style="IBUITableViewCellStyleDefault" id="6ri-0e-71z">
+                                <rect key="frame" x="0.0" y="22" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="748" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBC-me-DcY">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="r8n-g0-UJ2" kind="push" identifier="showEarthQuakeMarker" id="HTZ-0n-YXf"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="nCF-Yr-ZzU" id="vYt-lb-TLs"/>
+                            <outlet property="delegate" destination="nCF-Yr-ZzU" id="Q1L-o0-JFl"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Earthquakes in the last hour" id="wKL-Nf-sA7"/>
+                    <connections>
+                        <outlet property="tableView" destination="0XN-j1-aNr" id="hr2-Xy-7D2"/>
+                        <segue destination="r8n-g0-UJ2" kind="push" id="yn2-lZ-pe7"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aXe-RN-Evh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1077" y="-237"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dlT-k1-LuK">
+            <objects>
+                <navigationController id="H9V-dm-p1H" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ggd-Rb-E2d">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nCF-Yr-ZzU" kind="relationship" relationship="rootViewController" id="5GW-uU-RMx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dWk-9y-YhP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2085" y="-243"/>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="EQTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EQTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="quakeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="EQViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EQViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="options" candidateClass="GMSMarkerOptions"/>
+            </relationships>
+        </class>
+        <class className="GMSMarkerOptions" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GMSMarkerOptions.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="HTZ-0n-YXf"/>
+    </inferredMetricsTieBreakers>
+</document>
